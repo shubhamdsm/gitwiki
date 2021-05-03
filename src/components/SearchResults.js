@@ -1,6 +1,8 @@
+import { motion } from "framer-motion"
+
 const SearchResults = ({avatar,name,location,site,gitLink,dateJoin,projects,userName}) => {
     return(
-    <div className='flex mt-8 justify-center sm:flex-column '>
+    <motion.main initial={{y:100}} animate={{y:0}} transition={{type:'spring', damping:7, stiffness:200}} className='flex mt-8 justify-center sm:flex-column  '>
             <div className='flex sm:flex-column'>
                 <img src={avatar} alt='avatar' height='100px' width='200px'/>
             </div>
@@ -19,7 +21,7 @@ const SearchResults = ({avatar,name,location,site,gitLink,dateJoin,projects,user
         </div>
 
 
-    </div>
+    </motion.main>
     )
 }
 export default SearchResults

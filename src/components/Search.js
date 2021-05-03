@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import SearchResults from './SearchResults';
 import Stats from './Stats';
+import {motion} from 'framer-motion';
 
 const Search = () => {
 
@@ -47,7 +48,7 @@ const Search = () => {
 
    return(
       <>
-      <div className ='flex-column'>
+      <motion.main className ='flex-column' initial={{y:100}} animate={{y:0}} transition={{type:'spring', damping:12, stiffness:200}}>
          <div className='flex justify-center items-center'>
             <form onSubmit={handleSubmit}>
             <input type='text'
@@ -61,7 +62,7 @@ const Search = () => {
          </div>
          { name && <SearchResults name={name} avatar={avatar} location={location} site={site} gitLink={gitLink} userName={userName} dateJoin={dateJoin} projects={projects}/>}
          {  name && <Stats followers={followers} following={following} projects={projects} />}
-     </div>
+     </motion.main>
      </>
    )
 }

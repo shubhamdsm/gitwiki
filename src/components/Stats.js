@@ -1,6 +1,8 @@
+import { motion } from "framer-motion"
+
 const Stats = ({projects,followers,following}) => {
     return(
-        <div className='flex flex-row justify-around mt-10 mb-5  '>
+        <motion.main initial={{y:100}} animate={{y:0}} transition={{type:'spring', damping:7, stiffness:200}} className='flex flex-row justify-around mt-10 mb-5  '>
 
             <div className='bg-green-300 shadow-2xl rounded p-20'>
                 <p className='text-white text-2xl'>Repositories</p>
@@ -15,9 +17,9 @@ const Stats = ({projects,followers,following}) => {
                 <p className='text-white text-3xl text-center'>{following}</p>
             </div>
           
-            
-            
-        </div>
+           
+        
+        </motion.main>
     )
 }
 export default Stats
